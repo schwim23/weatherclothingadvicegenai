@@ -1,6 +1,4 @@
 async function getWeatherAndFunFact() {
-    //const apiKey = '';
-    //const weatherApiKey = '';
     const apiKey = process.env.apiKey;
     const weatherApiKey = process.env.weatherApiKey; 
 
