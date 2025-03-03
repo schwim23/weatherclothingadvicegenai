@@ -1,7 +1,10 @@
 async function getWeatherAndFunFact() {
-    const apiKey = '';
-    const weatherApiKey = '';
+    #const apiKey = '';
+    #const weatherApiKey = '';
+    const apiKey = process.env.apiKey;
+    const apiKey = process.env.weatherApiKey; 
 
+// ... use apiKey ...
     // Get user's location
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(async (position) => {
