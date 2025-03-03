@@ -1,0 +1,78 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 90%;
+}
+
+h1 {
+    color: #007BFF;
+    font-size: 24px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 20px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.info-box {
+    background-color: #e7f3fe;
+    border-left: 6px solid #007BFF;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    display: none; /* Hide by default */
+}
+
+#advice {
+    white-space: pre-wrap; /* Allows text to wrap */
+    word-wrap: break-word; /* Breaks long words */
+    display: block; /* Ensures the div is displayed as a block element */
+    max-width: 100%; /* Ensures the div does not exceed the container width */
+    overflow: auto; /* Adds scrollbars if the content overflows */
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .info-box {
+        font-size: 14px;
+    }
+}
