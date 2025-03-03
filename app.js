@@ -1,8 +1,8 @@
 async function getWeatherAndFunFact() {
     //const apiKey = '';
     //const weatherApiKey = '';
-    const apiKey = process.env.NEXT_PUBLIC_apiKey;
-    const weatherApiKey = process.env.NEXT_PUBLIC_weatherApiKey; 
+    const apiKey = process.env.apiKey;
+    const weatherApiKey = process.env.weatherApiKey; 
 
 // ... use apiKey ...
     // Get user's location
