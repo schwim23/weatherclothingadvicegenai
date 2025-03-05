@@ -11,9 +11,8 @@ const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon
 
 fetch(url, {
   method: 'GET',
-  mode: 'cors',
   headers: {
-    'Content-Type': 'application/json',
+    'Content-Type': 'text/html; charset=utf-8',
     'Access-Control-Allow-Origin': '*',
   },
 })
