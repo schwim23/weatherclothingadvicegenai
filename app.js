@@ -13,10 +13,11 @@ async function getWeatherAdvice() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    */
+    */		
 		fetch('url', {
   method: 'GET',
-  headers: {
+  mode: 'cors',
+			headers: {
     'Content-Type': 'application/json',
   },
 })
