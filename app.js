@@ -21,8 +21,8 @@ response=fetch('url', {
     'Content-Type': 'application/json',
   },
 })
-.then(response => response.json())
-.then(data => console.log(data))
+//.then(response => response.json())
+.then(response => console.log(resposne))
 .catch(error => console.error('Error:', error));
 		//const rawText = data; // Get the response
 		//const responseText = rawText.choices[0].message.content.trim();
