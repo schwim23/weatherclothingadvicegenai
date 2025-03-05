@@ -57,9 +57,15 @@ button:hover {
 #advice {
     white-space: pre-wrap; /* Allows text to wrap */
     word-wrap: break-word; /* Breaks long words */
-    display: block; /* Ensures the div is displayed as a block element */
     max-width: 100%; /* Ensures the div does not exceed the container width */
     overflow: auto; /* Adds scrollbars if the content overflows */
+    background-color: #e7f3fe;
+    border-left: 6px solid #007BFF;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    display: none; /* Hide by default */
 }
 
 @media (max-width: 600px) {
