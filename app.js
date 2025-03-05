@@ -11,7 +11,7 @@ async function getWeatherAdvice() {
 	    });
 	        const openAiWeatherData = await response.json();
 	        const responseText = openAiWeatherData.choices[0].message.content.trim();
-
+		return responseText;
             // Display the advice
             document.getElementById('advice').innerText = responseText;
             document.getElementById('advice').display = 'block';
@@ -24,5 +24,8 @@ async function getWeatherAdvice() {
 }
 
 document.getElementById('getAdviceButton').addEventListener('click', () => {
-getWeatherAdvice();
+advicetext=getWeatherAdvice();
+   // Display the advice
+document.getElementById('advice').innerText = advicetext;
+document.getElementById('advice').display = 'block';	
 });
