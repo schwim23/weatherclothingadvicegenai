@@ -4,15 +4,27 @@ async function getWeatherAdvice() {
         navigator.geolocation.getCurrentPosition(async (position) => {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
-            
+
+		/**
             // Fetch weather advice from Cloud Function
            	const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`;
 		const response = await fetch(url);
 		   if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-		const rawText = await response.json(); // Get the response
-		const responseText = openAiWeatherData.choices[0].message.content.trim();
+
+    */
+		fetch('url', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
+		const rawText = data; // Get the response
+		const responseText = rawText.choices[0].message.content.trim();
 
 		alert (responseText);
 	        //const openAiWeatherData = await response.json();
@@ -27,6 +39,9 @@ async function getWeatherAdvice() {
         alert('Geolocation is not supported by this browser.');
     }
 }
+
+
+
 
 document.getElementById('getAdviceButton').addEventListener('click', () => {
 advicetext=getWeatherAdvice();
