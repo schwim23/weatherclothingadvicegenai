@@ -15,7 +15,7 @@ async function getWeatherAdvice() {
 
     */	
 const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`;		
-fetch('url', {
+fetch(url, {
   method: 'GET',
   mode: 'cors',
 			headers: {
@@ -23,7 +23,7 @@ fetch('url', {
   },
 })
 //.then(response => response.json())
-.then(response => console.log(resposne))
+.then(response => console.log(response))
 .catch(error => console.error('Error:', error));
 		//const rawText = data; // Get the response
 		//const responseText = rawText.choices[0].message.content.trim();
