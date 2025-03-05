@@ -20,7 +20,7 @@ return response.text(); })
 .then(data => { 
 // Update the div's inner text with the fetched data 
 // Assuming the data is a string or can be converted to a string 
-myAdvice.innerText = data.message; // Replace 'message' with the actual key 
+myAdvice.innerText = data;  
 myAdvice.style.display = 'block'; // Make it visible
 	
 }) .catch(error => { 
