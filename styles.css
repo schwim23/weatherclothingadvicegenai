@@ -65,6 +65,7 @@ button:hover {
     padding: 10px;
     border-radius: 5px;
     font-size: 16px;
+    color: #007BFF;
 }
 
 @media (max-width: 600px) {
