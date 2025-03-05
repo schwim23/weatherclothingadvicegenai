@@ -53,7 +53,7 @@ function httpRequest(url, callback) {
 }
 const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`;		
 
-httpRequest('url', function(error, data) {
+httpRequest(url, function(error, data) {
   if (error) {
     console.error(error);
   } else {
