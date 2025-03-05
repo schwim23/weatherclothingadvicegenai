@@ -13,7 +13,8 @@ async function getWeatherAdvice() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    */		
+    */	
+const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`;		
 fetch('url', {
   method: 'GET',
   mode: 'cors',
