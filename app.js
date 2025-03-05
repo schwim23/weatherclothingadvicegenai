@@ -16,7 +16,6 @@ async function getWeatherAdvice() {
             const adviceElement = document.getElementById('advice');
             adviceElement.innerText = responseText; // Set the full response text
             adviceElement.style.display = 'block';
-	    alert (document.getElementById('advice').innerText);
         });
 
 
@@ -26,6 +25,5 @@ async function getWeatherAdvice() {
 }
 
 document.getElementById('getAdviceButton').addEventListener('click', () => {
-document.getElementById('advice').style.display = 'block';
 getWeatherAdvice();
 });
