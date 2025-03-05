@@ -26,8 +26,9 @@ fetch(url, {
 	        //const responseText = respnse.choices[0].message.content.trim();
             // Display the advice
             //document.getElementById('advice').innerText = responseText;
-            document.getElementById('advice').visibility = 'visible';
-        });
+		document.getElementById('advice').style.visibility = 'visible';        
+	
+	});
 
     } else {
         alert('Geolocation is not supported by this browser.');
