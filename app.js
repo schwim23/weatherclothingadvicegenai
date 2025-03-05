@@ -21,6 +21,8 @@ return response.text(); })
 // Update the div's inner text with the fetched data 
 // Assuming the data is a string or can be converted to a string 
 myAdvice.innerText = data.message; // Replace 'message' with the actual key 
+myAdvice.style.display = 'block'; // Make it visible
+	
 }) .catch(error => { 
 // Handle errors that occurred during the fetch or processing 
 myAdvice.innerText = 'Error fetching data: ' + error; });
