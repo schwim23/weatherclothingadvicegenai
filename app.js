@@ -24,14 +24,14 @@ async function getWeatherAdvice() {
 .then(response => response.json())
 .then(data => console.log(data))
 .catch(error => console.error('Error:', error));
-		const rawText = data; // Get the response
-		const responseText = rawText.choices[0].message.content.trim();
+		//const rawText = data; // Get the response
+		//const responseText = rawText.choices[0].message.content.trim();
 
-		alert (responseText);
+		//alert (responseText);
 	        //const openAiWeatherData = await response.json();
 	        //const responseText = respnse.choices[0].message.content.trim();
             // Display the advice
-            document.getElementById('advice').innerText = responseText;
+            //document.getElementById('advice').innerText = responseText;
             document.getElementById('advice').visibility = 'visible';
         });
 
