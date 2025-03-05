@@ -57,7 +57,7 @@ button:hover {
 #advice {
     white-space: pre-wrap; /* Allows text to wrap */
     word-wrap: break-word; /* Breaks long words */
-    display: block; /* Ensures the div is displayed as a block element */
+    display: none; /* Ensures the div is displayed as a block element */
     max-width: 100%; /* Ensures the div does not exceed the container width */
     overflow: auto; /* Adds scrollbars if the content overflows */
 }
