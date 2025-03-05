@@ -11,7 +11,7 @@ async function getWeatherAdvice() {
 		   if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-		const rawText = await response.json(); // Get the response as raw text
+		const rawText = await response.json(); // Get the response
 		const responseText = openAiWeatherData.choices[0].message.content.trim();
 
 		alert (responseText);
