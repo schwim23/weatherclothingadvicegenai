@@ -14,7 +14,7 @@ async function getWeatherAdvice() {
     }
 
     */		
-response=fetch('url', {
+fetch('url', {
   method: 'GET',
   mode: 'cors',
 			headers: {
