@@ -7,8 +7,26 @@ async function getWeatherAdvice() {
 	
             // Fetch weather advice from Cloud Function
 
+// Get the div element by its ID 
+const myAdvice = document.getElementById('advice'); 
+// Define the URL to fetch data from 
 const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`;
+// Use the fetch API to get data 
+fetch(url) .then(response => { 
+// Check if the request was successful (status code 200) 
+if (!response.ok) { throw new Error(`HTTP error! status: ${response.status}`); } 
+// Parse the JSON response 
+return response.json(); }) 
+.then(data => { 
+// Update the div's inner text with the fetched data 
+// Assuming the data is a string or can be converted to a string 
+myAdvice.innerText = data.message; // Replace 'message' with the actual key 
+}) .catch(error => { 
+// Handle errors that occurred during the fetch or processing 
+myAdvice.innerText = 'Error fetching data: ' + error; });
 
+
+/*		
 fetch(url, {
   method: 'GET',
   headers: {
@@ -33,6 +51,8 @@ fetch(url, {
   .catch(error => {
     console.error('Error:', error);
   });
+
+  */
 		
 			});
 
