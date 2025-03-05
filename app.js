@@ -15,7 +15,7 @@ const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon
 fetch(url) .then(response => { 
 // Check if the request was successful (status code 200) 
 if (!response.ok) { throw new Error(`HTTP error! status: ${response.status}`); } 
-// Parse the JSON response 
+// Parse the text response 
 return response.text(); }) 
 .then(data => { 
 // Update the div's inner text with the fetched data 
