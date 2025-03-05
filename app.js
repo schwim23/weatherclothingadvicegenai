@@ -29,8 +29,6 @@ fetch(url, {
             document.getElementById('advice').visibility = 'visible';
         });
 
-		
-}
     } else {
         alert('Geolocation is not supported by this browser.');
     }
