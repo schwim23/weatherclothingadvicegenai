@@ -4,7 +4,7 @@ async function getWeatherAdvice() {
         navigator.geolocation.getCurrentPosition(async (position) => {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
-	})
+	
 		/**
             // Fetch weather advice from Cloud Function
            	const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`;
@@ -61,7 +61,7 @@ httpRequest('url', function(error, data) {
   }
 });
 		
-
+})
     } else {
         alert('Geolocation is not supported by this browser.');
     }
