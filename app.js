@@ -6,15 +6,21 @@ async function getWeatherAdvice() {
             const lon = position.coords.longitude;
             
             // Fetch weather advice from Cloud Function
-            const response = await fetch(`https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`, {
+           	const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`;
+		const response = await fetch(url, {
 		    mode: 'no-cors',
 	    });
+		   if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+		const rawText = await response.text(); // Get the response as raw text
+
 		alert (response);
 	        //const openAiWeatherData = await response.json();
 	        //const responseText = respnse.choices[0].message.content.trim();
             // Display the advice
-            document.getElementById('advice').innerText = response;
-            document.getElementById('advice').display = 'block';
+            document.getElementById('advice').innerText = rawText;
+            document.getElementById('advice').visibility = 'visible';
         });
 
 
