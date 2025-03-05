@@ -9,6 +9,7 @@ async function getWeatherAdvice() {
             const response = await fetch(`https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`, {
 		    mode: 'no-cors',
 	    });
+		alert (response);
 	        //const openAiWeatherData = await response.json();
 	        //const responseText = respnse.choices[0].message.content.trim();
             // Display the advice
