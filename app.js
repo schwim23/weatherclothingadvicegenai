@@ -28,9 +28,7 @@ fetch(url, {
     // Example:
     // if (response && response.weather && response.weather[0] && response.weather[0].description) {
     // document.getElementById('advice').innerText = response.weather[0].description;
-    // }
-    document.getElementById('advice').innerText = response.json();  
-    document.getElementById('advice').style.visibility = 'visible';
+    //
   })
   .catch(error => {
     console.error('Error:', error);
@@ -38,6 +36,9 @@ fetch(url, {
 		
 			});
 
+    document.getElementById('advice').innerText = response.json();  
+    document.getElementById('advice').style.visibility = 'visible';
+	    
     } else {
         alert('Geolocation is not supported by this browser.');
     }
