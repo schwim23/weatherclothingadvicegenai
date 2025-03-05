@@ -13,7 +13,7 @@ async function getWeatherAdvice() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    */	
+    
 const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`;		
 fetch(url, {
   method: 'GET',
@@ -35,7 +35,32 @@ fetch(url, {
             //document.getElementById('advice').innerText = responseText;
             document.getElementById('advice').visibility = 'visible';
         });
+*/
 
+function httpRequest(url, callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        callback(null, xhr.responseText); // Success
+      } else {
+        callback('Request failed with status: ' + xhr.status); // Error
+      }
+    }
+  };
+  xhr.open('GET', url);
+  xhr.send();
+}
+const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`;		
+
+httpRequest('url', function(error, data) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log(data);
+  }
+});
+		
 
     } else {
         alert('Geolocation is not supported by this browser.');
