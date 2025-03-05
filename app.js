@@ -16,7 +16,7 @@ fetch(url) .then(response => {
 // Check if the request was successful (status code 200) 
 if (!response.ok) { throw new Error(`HTTP error! status: ${response.status}`); } 
 // Parse the JSON response 
-return response.json(); }) 
+return response.text(); }) 
 .then(data => { 
 // Update the div's inner text with the fetched data 
 // Assuming the data is a string or can be converted to a string 
