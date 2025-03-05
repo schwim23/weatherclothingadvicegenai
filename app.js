@@ -6,7 +6,36 @@ async function getWeatherAdvice() {
             const lon = position.coords.longitude;
 	
             // Fetch weather advice from Cloud Function
-    
+
+const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`;
+
+fetch(url, {
+  method: 'GET',
+  mode: 'cors',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
+  .then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(response => {
+    console.log(response);
+    // Adapt this part based on your API's response structure
+    // Example:
+    // if (response && response.weather && response.weather[0] && response.weather[0].description) {
+    //   document.getElementById('advice').innerText = response.weather[0].description;
+    // }
+    document.getElementById('advice').style.visibility = 'visible';
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+		
+/*
 const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`;		
 fetch(url, {
   method: 'GET',
@@ -29,7 +58,7 @@ fetch(url, {
 		document.getElementById('advice').style.visibility = 'visible';        
 	
 	});
-
+*/
     } else {
         alert('Geolocation is not supported by this browser.');
     }
