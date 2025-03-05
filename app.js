@@ -29,7 +29,7 @@ fetch(url, {
     // if (response && response.weather && response.weather[0] && response.weather[0].description) {
     // document.getElementById('advice').innerText = response.weather[0].description;
     // }
-    document.getElementById('advice').innerText = response;  
+    document.getElementById('advice').innerText = response.json();  
     document.getElementById('advice').style.visibility = 'visible';
   })
   .catch(error => {
