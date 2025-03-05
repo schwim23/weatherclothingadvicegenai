@@ -13,13 +13,14 @@ async function getWeatherAdvice() {
 		   if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-		const rawText = await response.text(); // Get the response as raw text
+		const rawText = await response.json(); // Get the response as raw text
+		const responseText = openAiWeatherData.choices[0].message.content.trim();
 
-		alert (response);
+		alert (responseText);
 	        //const openAiWeatherData = await response.json();
 	        //const responseText = respnse.choices[0].message.content.trim();
             // Display the advice
-            document.getElementById('advice').innerText = rawText;
+            document.getElementById('advice').innerText = responseText;
             document.getElementById('advice').visibility = 'visible';
         });
 
