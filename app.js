@@ -8,7 +8,7 @@ async function getWeatherAdvice() {
             // Fetch weather advice from Cloud Function
             const getAIWeatherAdvice = await fetch(`https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`, {
 		    mode: 'no-cors',
-		    );
+	    });
 	        const openAiWeatherData = await getAIWeatherAdvice.json();
 	        const responseText = openAiWeatherData.choices[0].message.content.trim();
 
