@@ -57,8 +57,9 @@ fetch(url, {
             //document.getElementById('advice').innerText = responseText;
 		document.getElementById('advice').style.visibility = 'visible';        
 	
-	});
 */
+			});
+
     } else {
         alert('Geolocation is not supported by this browser.');
     }
