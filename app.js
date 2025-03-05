@@ -48,8 +48,8 @@ fetch(url, {
 
 
 document.getElementById('getAdviceButton').addEventListener('click', () => {
-advicetext=getWeatherAdvice();
+getWeatherAdvice();
    // Display the advice
-document.getElementById('advice').innerText = advicetext;
-document.getElementById('advice').display = 'block';	
+//document.getElementById('advice').innerText = advicetext;
+//document.getElementById('advice').display = 'block';	
 });
