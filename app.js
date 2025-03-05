@@ -9,11 +9,10 @@ async function getWeatherAdvice() {
             const response = await fetch(`https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`, {
 		    mode: 'no-cors',
 	    });
-	        const openAiWeatherData = await response.json();
-	        const responseText = openAiWeatherData.choices[0].message.content.trim();
-		return responseText;
+	        //const openAiWeatherData = await response.json();
+	        //const responseText = respnse.choices[0].message.content.trim();
             // Display the advice
-            document.getElementById('advice').innerText = responseText;
+            document.getElementById('advice').innerText = response;
             document.getElementById('advice').display = 'block';
         });
 
