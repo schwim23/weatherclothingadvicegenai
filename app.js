@@ -25,6 +25,6 @@ async function getWeatherAdvice() {
 }
 
 document.getElementById('getAdviceButton').addEventListener('click', () => {
-    document.getElementById('advice').style.display = 'none';
-    getWeatherAdvice();
+document.getElementById('advice').style.display = 'block';
+getWeatherAdvice();
 });
