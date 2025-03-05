@@ -7,9 +7,7 @@ async function getWeatherAdvice() {
             
             // Fetch weather advice from Cloud Function
            	const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`;
-		const response = await fetch(url, {
-		    mode: 'no-cors',
-	    });
+		const response = await fetch(url);
 		   if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
