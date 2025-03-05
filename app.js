@@ -20,8 +20,8 @@ fetch(url, {
     if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
-    return response.json();
-  })
+    document.getElementById('advice').innerText = response.json();  
+    document.getElementById('advice').style.visibility = 'visible';  })
   .then(response => {
     console.log(response);
     // Adapt this part based on your API's response structure
@@ -36,8 +36,7 @@ fetch(url, {
 		
 			});
 
-    document.getElementById('advice').innerText = response.json();  
-    document.getElementById('advice').style.visibility = 'visible';
+  
 	    
     } else {
         alert('Geolocation is not supported by this browser.');
