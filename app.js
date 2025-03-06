@@ -7,70 +7,36 @@ async function getWeatherAdvice() {
 	
             // Fetch weather advice from Cloud Function
 
-// Get the div element by its ID 
+// Get  div element to display Weather clothing advice by  ID 
 const myAdvice = document.getElementById('advice'); 
-// Define the URL to fetch data from 
-const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`;
-// Use the fetch API to get data 
-fetch(url) .then(response => { 
-// Check if the request was successful (status code 200) 
-if (!response.ok) { throw new Error(`HTTP error! status: ${response.status}`); } 
-// Parse the text response 
-return response.text(); }) 
-.then(data => { 
-// Update the div's inner text with the fetched data 
-// Assuming the data is a string or can be converted to a string 
-myAdvice.innerText = data;  
-myAdvice.style.display = 'block'; // Make it visible
-	
-}) .catch(error => { 
-// Handle errors that occurred during the fetch or processing 
-myAdvice.innerText = 'Error fetching data: ' + error; });
-
-
-/*		
-fetch(url, {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'text/html; charset=utf-8',
-    'Access-Control-Allow-Origin': '*',
-  },
-})
-  .then(response => {
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    document.getElementById('advice').innerText = response.json();  
-    document.getElementById('advice').style.visibility = 'visible';  })
-  .then(response => {
-    console.log(response);
-    // Adapt this part based on your API's response structure
-    // Example:
-    // if (response && response.weather && response.weather[0] && response.weather[0].description) {
-    // document.getElementById('advice').innerText = response.weather[0].description;
-    //
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-
-  */
 		
-			});
-
-  
+// Define the URL to GCP Cloud Function "middleware" to fetch data from 
+const url = `https://getweather-151599888657.us-central1.run.app/?lat=${lat}&lon=${lon}`;
+		
+// Use the JS fetch API to get data 
+fetch(url) .then(response => { 
+	// Check if the request was successful (status code 200) 
+	if (!response.ok) { throw new Error(`HTTP error! status: ${response.status}`); } 
+	// Parse the text response 
+	return response.text(); }) 
+	.then(data => { 
+	// Update the div's inner text with the fetched data 
+	myAdvice.innerText = data;  
+	myAdvice.style.display = 'block'; // Make the div visible
+	
+	}) .catch(error => { 
+	// Handle errors that occurred during the fetch or processing 
+	myAdvice.innerText = 'Error fetching data: ' + error; });
+		
+	});
 	    
     } else {
+	//alert if Geo Location can't be supported or user declines    
         alert('Geolocation is not supported by this browser.');
     }
 }
 
-
-
-
+//listen for button click and initiate getWeatherAdvice when clicked
 document.getElementById('getAdviceButton').addEventListener('click', () => {
 getWeatherAdvice();
-   // Display the advice
-//document.getElementById('advice').innerText = advicetext;
-//document.getElementById('advice').display = 'block';	
 });
