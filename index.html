@@ -11,7 +11,32 @@
     <div class="container">
         <h1>Kids Weather Clothing Advice App</h1>
         <button id="getAdviceButton">Get Clothing Advice for Tomorrow</button>
-        <div id="advice" style="display: none;"></div>
+
+        <!-- Weather summary block -->
+        <section id="summary" style="margin-top:20px; display:none;">
+            <h2 id="date"></h2>
+            <h3 id="location"></h3>
+            <p id="weather"></p>
+            <span id="umbrella" style="display:none; font-weight:bold; color:blue;">
+                🌂 Umbrella recommended
+            </span>
+        </section>
+
+        <!-- Clothing advice -->
+        <section style="margin-top:20px;">
+            <h3>Clothing Advice</h3>
+            <div id="advice" style="display:none;"></div>
+        </section>
+
+        <!-- Fact of the Day -->
+        <section style="margin-top:20px;">
+            <h3>Fact of the Day</h3>
+            <p id="fact"></p>
+            <p id="factSource" style="font-size:0.9em; color:#555;"></p>
+        </section>
+
+        <!-- Error messages -->
+        <div id="error" style="color:red; margin-top:15px; display:none;"></div>
     </div>
 </body>
 </html>
