@@ -118,6 +118,16 @@ button:hover {
     font-weight: 600;
 }
 
+/* Override any blue text in advice content */
+#advice * {
+    color: #333 !important;
+}
+
+#advice strong {
+    color: #007BFF !important;
+    font-weight: 600;
+}
+
 /* === Fact of the Day section === */
 #factSection {
     background-color: #f9fbff;
@@ -126,18 +136,19 @@ button:hover {
     padding: 20px;
     border-radius: 5px;
     text-align: center;
+    color: #333;
 }
 
 #fact {
     font-size: 16px;
     margin: 0 0 8px 0;
-    color: #333;
+    color: #333 !important;
     font-weight: 500;
 }
 
 #factSource {
     font-size: 13px;
-    color: #333;
+    color: #333 !important;
     margin: 0;
     font-style: italic;
 }
