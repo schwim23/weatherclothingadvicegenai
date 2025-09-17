@@ -136,3 +136,7 @@ button:hover {
         font-size: 14px;
     }
 }
+/* Section headings (blue like the button) */
+.section-title {
+    color: #007BFF;
+}
