@@ -80,48 +80,39 @@ async function getWeatherAdvice() {
             const ca = data.clothing_advice || {};
             const fact = data.fact_of_the_day || {};
 
-            // Weather summary - build both detailed and friendly versions
-            const parts = [];
-            
-            // Add friendly summary first if available
-            if (ws.summary) {
-                parts.push(`📖 ${ws.summary}`);
-                parts.push(''); // Add a blank line separator
-            }
-            
-            // Add technical details
-            if (ws.description) parts.push(ws.description);
+            // Build technical details first
+            const technicalParts = [];
+            if (ws.description) technicalParts.push(ws.description);
             if (typeof ws.high_f === 'number' && typeof ws.low_f === 'number') {
-                parts.push(`High/Low: ${ws.high_f}°F / ${ws.low_f}°F`);
+                technicalParts.push(`High/Low: ${ws.high_f}°F / ${ws.low_f}°F`);
             }
             if (typeof ws.precipitation_chance_percent === 'number') {
-                parts.push(`Precip: ${ws.precipitation_chance_percent}%`);
+                technicalParts.push(`Precip: ${ws.precipitation_chance_percent}%`);
             }
             if (typeof ws.feels_like_morning_f === 'number' || typeof ws.feels_like_afternoon_f === 'number') {
                 const morn = (typeof ws.feels_like_morning_f === 'number') ? `${ws.feels_like_morning_f}°F` : '—';
                 const aft = (typeof ws.feels_like_afternoon_f === 'number') ? `${ws.feels_like_afternoon_f}°F` : '—';
-                parts.push(`Feels-like (AM/PM): ${morn} / ${aft}`);
+                technicalParts.push(`Feels-like (AM/PM): ${morn} / ${aft}`);
             }
             if (typeof ws.wind_avg_mph === 'number') {
                 const wind = `${ws.wind_avg_mph} mph`;
                 const gust = (typeof ws.wind_gust_max_mph === 'number') ? ` (gusts ~${ws.wind_gust_max_mph} mph)` : '';
-                parts.push(`Wind: ${wind}${gust}`);
+                technicalParts.push(`Wind: ${wind}${gust}`);
             }
 
             // Create formatted weather display
             let weatherDisplay = '';
             if (ws.summary) {
                 // If we have a summary, format it nicely
-                weatherDisplay = `<div style="font-style: italic; color: #007BFF; margin-bottom: 10px; font-size: 16px;">${ws.summary}</div>`;
+                weatherDisplay = `<div style="font-style: italic; color: #007BFF; margin-bottom: 10px; font-size: 16px; font-weight: 500;">📖 ${ws.summary}</div>`;
                 
                 // Add technical details in smaller text
-                const technicalParts = parts.slice(2); // Skip summary and blank line
                 if (technicalParts.length > 0) {
-                    weatherDisplay += `<div style="font-size: 14px; color: #666;">${technicalParts.join(' | ')}</div>`;
+                    weatherDisplay += `<div style="font-size: 14px; color: #333;">${technicalParts.join(' | ')}</div>`;
                 }
             } else {
                 // Fallback to original format if no summary
-                weatherDisplay = parts.join(' | ');
+                weatherDisplay = technicalParts.join(' | ');
             }
 
             setHTML(myWeather, weatherDisplay);
