@@ -79,6 +79,10 @@ async function getWeatherAdvice() {
             const ws = data.weather_summary || {};
             const ca = data.clothing_advice || {};
             const fact = data.fact_of_the_day || {};
+            
+            // Debug: Log the weather summary object
+            console.log('Weather summary object:', ws);
+            console.log('Summary field:', ws.summary);
 
             // Build technical details first
             const technicalParts = [];
@@ -102,8 +106,11 @@ async function getWeatherAdvice() {
 
             // Create formatted weather display
             let weatherDisplay = '';
-            if (ws.summary) {
+            console.log('Checking summary:', ws.summary, 'Type:', typeof ws.summary);
+            
+            if (ws.summary && ws.summary.trim() !== '') {
                 // If we have a summary, format it nicely
+                console.log('Adding summary to display');
                 weatherDisplay = `<div style="font-style: italic; color: #007BFF; margin-bottom: 10px; font-size: 16px; font-weight: 500;">📖 ${ws.summary}</div>`;
                 
                 // Add technical details in smaller text
@@ -112,9 +119,11 @@ async function getWeatherAdvice() {
                 }
             } else {
                 // Fallback to original format if no summary
+                console.log('No summary found, using technical details only');
                 weatherDisplay = technicalParts.join(' | ');
             }
-
+            
+            console.log('Final weather display HTML:', weatherDisplay);
             setHTML(myWeather, weatherDisplay);
             setText(myDate, data.date || '');
             setText(myLocation, data.location || '');
