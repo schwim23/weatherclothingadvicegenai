@@ -60,19 +60,19 @@ button:hover {
     font-size: 20px;
     font-weight: bold;
     margin: 0 0 8px 0;
-    color: #333;
+    color: #007BFF;
 }
 
 #location {
     font-size: 18px;
     margin: 0 0 12px 0;
-    color: #444;
+    color: #007BFF;
     font-weight: 500;
 }
 
 #weather {
     font-size: 14px;
-    color: #666;
+    color: #333;
     margin: 0;
     line-height: 1.5;
 }
@@ -137,7 +137,7 @@ button:hover {
 
 #factSource {
     font-size: 13px;
-    color: #666;
+    color: #333;
     margin: 0;
     font-style: italic;
 }
