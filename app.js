@@ -80,8 +80,16 @@ async function getWeatherAdvice() {
             const ca = data.clothing_advice || {};
             const fact = data.fact_of_the_day || {};
 
-            // Weather summary
+            // Weather summary - build both detailed and friendly versions
             const parts = [];
+            
+            // Add friendly summary first if available
+            if (ws.summary) {
+                parts.push(`📖 ${ws.summary}`);
+                parts.push(''); // Add a blank line separator
+            }
+            
+            // Add technical details
             if (ws.description) parts.push(ws.description);
             if (typeof ws.high_f === 'number' && typeof ws.low_f === 'number') {
                 parts.push(`High/Low: ${ws.high_f}°F / ${ws.low_f}°F`);
@@ -100,7 +108,23 @@ async function getWeatherAdvice() {
                 parts.push(`Wind: ${wind}${gust}`);
             }
 
-            setText(myWeather, parts.join(' | '));
+            // Create formatted weather display
+            let weatherDisplay = '';
+            if (ws.summary) {
+                // If we have a summary, format it nicely
+                weatherDisplay = `<div style="font-style: italic; color: #007BFF; margin-bottom: 10px; font-size: 16px;">${ws.summary}</div>`;
+                
+                // Add technical details in smaller text
+                const technicalParts = parts.slice(2); // Skip summary and blank line
+                if (technicalParts.length > 0) {
+                    weatherDisplay += `<div style="font-size: 14px; color: #666;">${technicalParts.join(' | ')}</div>`;
+                }
+            } else {
+                // Fallback to original format if no summary
+                weatherDisplay = parts.join(' | ');
+            }
+
+            setHTML(myWeather, weatherDisplay);
             setText(myDate, data.date || '');
             setText(myLocation, data.location || '');
 
@@ -122,14 +146,14 @@ async function getWeatherAdvice() {
             setText(myFactSource, fact.source ? `Source: ${fact.source}` : '');
 
             // Show sections only if content exists
-            if ((myDate && myDate.textContent) || (myLocation && myLocation.textContent) || (myWeather && myWeather.textContent)) {
-                show(summarySection || myWeather, true);
+            if ((myDate && myDate.textContent) || (myLocation && myLocation.textContent) || (myWeather && myWeather.innerHTML.trim() !== '')) {
+                show(summarySection, true);
             }
             if (myAdvice && myAdvice.innerHTML.trim() !== '') {
-                show(adviceSection || myAdvice, true);
+                show(adviceSection, true);
             }
             if ((myFact && myFact.textContent.trim() !== '') || (myFactSource && myFactSource.textContent.trim() !== '')) {
-                show(factSection || myFact, true);
+                show(factSection, true);
             }
 
             // Log to help debug if something still doesn't show
